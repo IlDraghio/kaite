@@ -1,0 +1,73 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body and html */
+html, body {
+    height: 100%;
+    font-family: Arial, sans-serif;
+}
+
+/* Header (fixed at top) */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #004466;
+    color: #fff;
+    padding: 1rem;
+    z-index: 1000;
+}
+
+header nav a {
+    color: #fff;
+    text-decoration: none;
+    margin-right: 1rem;
+    font-weight: bold;
+}
+
+header nav a:hover {
+    text-decoration: underline;
+}
+
+/* Footer (fixed at bottom) */
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #004466;
+    color: #fff;
+    text-align: center;
+    padding: 1rem;
+}
+
+/* Main content area */
+main {
+    padding: 6rem 2rem 4rem; /* top padding = header height + some spacing, bottom = footer height + spacing */
+    min-height: calc(100vh - 10rem); /* ensures main content fills space between header & footer */
+    background-color: #f7f7f7;
+}
+
+main h1 {
+    font-size: 3rem;      /* makes it bigger */
+    text-align: center;    /* centers it horizontally */
+    margin-bottom: 0.8rem; /* space between title and content */
+    color: #004466;        /* optional: match navbar/footer color */
+}
+
+main h2 {
+    text-align: center;    /* centers it horizontally */
+    margin-bottom: 1.5rem; /* space between title and content */
+    color: #3496c7;        /* optional: match navbar/footer color */
+}
+
+.image-container {
+    display: flex;            /* use flexbox */
+    justify-content: center;  /* center horizontally */
+    margin-top: -10rem;
+}
