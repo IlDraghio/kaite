@@ -37,8 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'accounts',
+    'user',
     'pages',
+    'dataset',
     'ml',
 ]
 
@@ -75,12 +76,14 @@ WSGI_APPLICATION = 'kaite.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
+AUTH_USER_MODEL = "user.UserProfile"
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'kaite_db',
-        'USER': 'mluser',
-        'PASSWORD': 'securepassword',
+        'NAME': 'mldb',
+        'USER': 'postgres',
+        'PASSWORD': 'Justice1',
         'HOST': 'localhost',
         'PORT': '5432',
     }

@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'user/css/registration.css' %}">
+{% endblock %}
+
+{% block title %}Registration{% endblock %}
+
+{% block page_title %}
+    <h1>Please choose username and password</h1>
+    <h2>Join the tribe!</h2>
+{% endblock %}
+
+{% block content %}
+    <div id="container">
+        <div id="message"></div>
+        <form id="registration-form">
+            <div>
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+
+            <button type="submit">Register</button>
+        </form>
+        </div>
+    </div>
+    <div id="toast" class="toast"></div>
+{% endblock %}
+
+{% block extra_js%}
+<script src="{% static 'js/utils.js' %}"></script>
+<script>const registrationUrl = "{% url 'api-registration' %}";</script>
+<script src="{% static 'user/js/registration.js' %}" defer></script>
+{% endblock %}

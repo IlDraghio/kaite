@@ -21,4 +21,5 @@ from pages.views import home_view
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('pages.urls')),
+    path('', include('user.urls')),
 ]

@@ -1,17 +1,14 @@
-/* Reset */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Body and html */
 html, body {
     height: 100%;
     font-family: Arial, sans-serif;
 }
 
-/* Header (fixed at top) */
 header {
     position: fixed;
     top: 0;
@@ -34,7 +31,6 @@ header nav a:hover {
     text-decoration: underline;
 }
 
-/* Footer (fixed at bottom) */
 footer {
     position: fixed;
     bottom: 0;
@@ -46,28 +42,50 @@ footer {
     padding: 1rem;
 }
 
-/* Main content area */
 main {
-    padding: 6rem 2rem 4rem; /* top padding = header height + some spacing, bottom = footer height + spacing */
-    min-height: calc(100vh - 10rem); /* ensures main content fills space between header & footer */
+    display: flex;
+    flex-direction: column; 
+    align-items: center;   
     background-color: #f7f7f7;
+    min-height: calc(100vh - 10rem); 
+    padding: 2rem; 
 }
 
 main h1 {
-    font-size: 3rem;      /* makes it bigger */
-    text-align: center;    /* centers it horizontally */
-    margin-bottom: 0.8rem; /* space between title and content */
-    color: #004466;        /* optional: match navbar/footer color */
+    font-size: 3rem;      
+    text-align: center;   
+    margin-top: 3rem;
+    margin-bottom: 0.8rem;
 }
 
 main h2 {
-    text-align: center;    /* centers it horizontally */
-    margin-bottom: 1.5rem; /* space between title and content */
-    color: #3496c7;        /* optional: match navbar/footer color */
+    text-align: center;   
+    margin-bottom: 1.5rem; 
+    color: #3496c7;      
 }
 
 .image-container {
-    display: flex;            /* use flexbox */
-    justify-content: center;  /* center horizontally */
+    display: flex;           
+    justify-content: center;  
     margin-top: -10rem;
+}
+
+.toast {
+    position: fixed;
+    top: 17.5%;
+    left: 50%; 
+    transform: translateX(-50%);
+    background: #004466;
+    color: #f7f7f7;
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s, transform 0.5s;
+    z-index: 1000;
+    max-width: 80%;
+    }
+
+.toast.show {
+    opacity: 1;
 }
