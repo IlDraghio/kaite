@@ -4,7 +4,7 @@ form.addEventListener("submit", async function(event) {
 
     const username = document.getElementById("username").value;
     const password = document.getElementById("password").value;
-    const csrfToken = document.querySelector('#registration-form input[name="csrfmiddlewaretoken"]').value;
+const csrfToken = document.querySelector('#registration-form input[name="csrfmiddlewaretoken"]').value;    
     
     const response = await fetch(registrationAPIUrl, {
         method: "POST",
@@ -18,15 +18,12 @@ form.addEventListener("submit", async function(event) {
     const data = await response.json();
 
     if (response.ok) {
-        try {
+
         showPopup(`User ${data.username} registered successfully!\nRedirecting to the login page...`);
         form.reset();
         setTimeout(() => {
         window.location.href = loginAPIUrl;
-        }, 3010);
-        } catch (err) {
-        console.error("Error inside success block:", err);
-    }
+        }, 2000);
     } else {
         let errors = "";
         for (const key in data) errors += `${key}: ${data[key]}\n`;

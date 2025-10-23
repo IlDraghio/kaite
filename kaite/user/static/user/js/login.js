@@ -18,15 +18,11 @@ form.addEventListener("submit", async function(event) {
     const data = await response.json();
 
     if (response.ok) {
-        try {
         showPopup(`User ${username} login successfully!\nRedirecting to the home page...`);
         form.reset();
         setTimeout(() => {
         window.location.href = homeUrl;
-        }, 3010);
-        } catch (err) {
-        console.error("Error inside success block:", err);
-    }
+        }, 2000);
     } else {
         let errors = "";
         for (const key in data) errors += `${key}: ${data[key]}\n`;

@@ -11,25 +11,32 @@
 <body>
     <header>
         <nav>
+            <div id="toast" class="toast"></div>
             <a href="{% url 'home' %}">Home</a>
             {% if user.is_authenticated %}
+                {% csrf_token %}
+                <a href="#" id="logout-link">Logout</a>
             {% else %}
-            <a href="{% url 'login' %}">Login</a>
-            <a href="{% url 'registration' %}">Registration</a>
+                <a href="{% url 'login' %}">Login</a>
+                <a href="{% url 'registration' %}">Registration</a>
             {% endif %}
         </nav>
     </header>
 
     <main>
         {% block page_title %}Warning: missing page title{% endblock %}
-        {% block content %}Warning: missing content{% endblock %}
+        {% block content %}{% endblock %}
     </main>
 
     <footer>
         <p>&copy; 2025 Kaite</p>
     </footer>
 
-    <script src="{% static 'js/base.js' %}"></script>
-    {% block extra_js %}{% endblock %}
+    {% block extra_js %}
+        <script>const CSRF_TOKEN = '{{ csrf_token }}';</script>
+        <script src="{% static 'js/utils.js' %}" defer></script>
+        <script src="{% static 'user/js/logout.js' %}" defer></script>
+    {% endblock %}
+
 </body>
 </html>

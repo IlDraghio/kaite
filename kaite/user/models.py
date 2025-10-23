@@ -23,7 +23,7 @@ class UserProfile(AbstractUser):
             })
 
     def __str__(self):
-        return self.user.username
+        return self.username
 
 class FriendRequest(models.Model):
     sender = models.ForeignKey(UserProfile, related_name='sent_requests', on_delete=models.CASCADE)

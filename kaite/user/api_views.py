@@ -1,7 +1,7 @@
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
-from django.contrib.auth import authenticate, login as django_login
+from django.contrib.auth import authenticate, login as django_login, logout as django_logout
 from rest_framework.authtoken.models import Token
 from .serializers import UserRegistrationSerializer
 from django.contrib.auth import get_user_model
@@ -30,3 +30,8 @@ class UserLoginAPIView(APIView):
                 django_login(request, user)
                 return Response({"success": True})
             return Response({"error": "Invalid credentials"}, status=status.HTTP_400_BAD_REQUEST)
+        
+class UserLogoutAPIView(APIView):
+    def post(self, request):
+        django_logout(request)
+        return Response({"success": True})
