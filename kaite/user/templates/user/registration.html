@@ -16,6 +16,7 @@
     <div id="container">
         <div id="message"></div>
         <form id="registration-form">
+            {% csrf_token %}
             <div>
                 <label for="username">Username:</label>
                 <input type="text" id="username" name="username" required>
@@ -33,7 +34,10 @@
 {% endblock %}
 
 {% block extra_js%}
+<script>
+    const registrationUrl = "{% url 'api-registration' %}";
+    const loginUrl = "{% url 'login' %}"; 
+</script>
 <script src="{% static 'js/utils.js' %}"></script>
-<script>const registrationUrl = "{% url 'api-registration' %}";</script>
 <script src="{% static 'user/js/registration.js' %}" defer></script>
 {% endblock %}
