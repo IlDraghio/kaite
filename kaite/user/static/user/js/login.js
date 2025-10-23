@@ -1,12 +1,12 @@
-const form = document.getElementById("registration-form");
+const form = document.getElementById("login-form");
 form.addEventListener("submit", async function(event) {
     event.preventDefault();
 
     const username = document.getElementById("username").value;
     const password = document.getElementById("password").value;
-    const csrfToken = document.querySelector('#registration-form input[name="csrfmiddlewaretoken"]').value;
+    const csrfToken = document.querySelector('#login-form input[name="csrfmiddlewaretoken"]').value;
     
-    const response = await fetch(registrationAPIUrl, {
+    const response = await fetch(loginAPIUrl, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -19,10 +19,10 @@ form.addEventListener("submit", async function(event) {
 
     if (response.ok) {
         try {
-        showPopup(`User ${data.username} registered successfully!\nRedirecting to the login page...`);
+        showPopup(`User ${username} login successfully!\nRedirecting to the home page...`);
         form.reset();
         setTimeout(() => {
-        window.location.href = loginAPIUrl;
+        window.location.href = homeUrl;
         }, 3010);
         } catch (err) {
         console.error("Error inside success block:", err);

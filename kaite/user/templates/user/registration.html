@@ -2,7 +2,6 @@
 {% load static %}
 
 {% block extra_css %}
-    <link rel="stylesheet" href="{% static 'user/css/registration.css' %}">
 {% endblock %}
 
 {% block title %}Registration{% endblock %}
@@ -35,8 +34,8 @@
 
 {% block extra_js%}
 <script>
-    const registrationUrl = "{% url 'api-registration' %}";
-    const loginUrl = "{% url 'login' %}"; 
+    const registrationAPIUrl = "{% url 'api-registration' %}";
+    const loginAPIUrl = "{% url 'login' %}"; 
 </script>
 <script src="{% static 'js/utils.js' %}"></script>
 <script src="{% static 'user/js/registration.js' %}" defer></script>

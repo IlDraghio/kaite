@@ -9,7 +9,31 @@
 {% endblock %}
 
 {% block content %}
-    <div class="image-container">
-        <img src="{% static 'images/logo.png' %}" alt="Logo">
+<div id="container">
+        <div id="message"></div>
+        <form id="login-form">
+            {% csrf_token %}
+            <div>
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+
+            <button type="submit">Login</button>
+        </form>
+        </div>
     </div>
+    <div id="toast" class="toast"></div>
+{% endblock %}
+
+{% block extra_js%}
+<script>
+    const loginAPIUrl = "{% url 'api-login' %}";
+    const homeUrl = "{% url 'home' %}"; 
+</script>
+<script src="{% static 'js/utils.js' %}" defer></script>
+<script src="{% static 'user/js/login.js' %}" defer></script>
 {% endblock %}
