@@ -44,10 +44,11 @@ header nav a:hover {
 }
 
 .right-logout {
-    margin-left: auto; 
+    margin-left: 0.5rem; 
 }
+
 .profile-link {
-    margin-left: 0.5rem;
+    margin-left: auto;
 }
 
 .profile-icon {

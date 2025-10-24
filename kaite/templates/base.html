@@ -15,10 +15,10 @@
             <a href="{% url 'home' %}" class='left-link'>Home</a>
             {% if user.is_authenticated %}
                 {% csrf_token %}
-                <a href="#" id="logout-link" class="right-logout">Logout</a>
                 <a href="{% url 'profile' %}" class='profile-link'>
                 <img src="{% static 'images/user-icon.png' %}" alt="Profile" class="profile-icon">
                 </a>
+                <a href="#" id="logout-link" class="right-logout">Logout</a>
             {% else %}
                 <a href="{% url 'login' %}" class='left-link'>Login</a>
                 <a href="{% url 'registration' %}" class='left-link'>Registration</a>

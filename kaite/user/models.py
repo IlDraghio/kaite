@@ -6,7 +6,7 @@ client = MongoClient("mongodb://localhost:27017/")
 db = client["ml_db"]
 
 class UserProfile(AbstractUser):
-    bio = models.TextField(blank=True)
+    bio = models.TextField(blank=True,default="Loving Kaite!")
     profile_image = models.ImageField(
         upload_to="profile_images/",
         blank=True,
