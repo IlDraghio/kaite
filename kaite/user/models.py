@@ -7,7 +7,11 @@ db = client["ml_db"]
 
 class UserProfile(AbstractUser):
     bio = models.TextField(blank=True)
-    profile_image = models.ImageField(upload_to="profile_images/", blank=True, null=True)
+    profile_image = models.ImageField(
+        upload_to="profile_images/",
+        blank=True,
+        null=True,
+        default="profile_images/default.png")
     friends = models.ManyToManyField("self", blank=True)
     
     def save(self, *args, **kwargs):

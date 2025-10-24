@@ -12,13 +12,16 @@
     <header>
         <nav>
             <div id="toast" class="toast"></div>
-            <a href="{% url 'home' %}">Home</a>
+            <a href="{% url 'home' %}" class='left-link'>Home</a>
             {% if user.is_authenticated %}
                 {% csrf_token %}
-                <a href="#" id="logout-link">Logout</a>
+                <a href="#" id="logout-link" class="right-logout">Logout</a>
+                <a href="{% url 'profile' %}" class='profile-link'>
+                <img src="{% static 'images/user-icon.png' %}" alt="Profile" class="profile-icon">
+                </a>
             {% else %}
-                <a href="{% url 'login' %}">Login</a>
-                <a href="{% url 'registration' %}">Registration</a>
+                <a href="{% url 'login' %}" class='left-link'>Login</a>
+                <a href="{% url 'registration' %}" class='left-link'>Registration</a>
             {% endif %}
         </nav>
     </header>

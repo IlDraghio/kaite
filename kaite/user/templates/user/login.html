@@ -30,10 +30,10 @@
 {% endblock %}
 
 {% block extra_js%}
+{{ block.super }}
 <script>
     const loginAPIUrl = "{% url 'api-login' %}";
     const homeUrl = "{% url 'home' %}"; 
 </script>
-<script src="{% static 'js/utils.js' %}" defer></script>
 <script src="{% static 'user/js/login.js' %}" defer></script>
 {% endblock %}
