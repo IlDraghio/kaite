@@ -2,6 +2,7 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 from django.contrib.auth import authenticate, login as django_login, logout as django_logout
+from rest_framework.permissions import IsAuthenticated
 from rest_framework.authtoken.models import Token
 from .serializers import UserRegistrationSerializer
 from django.contrib.auth import get_user_model
@@ -32,6 +33,20 @@ class UserLoginAPIView(APIView):
             return Response({"error": "Invalid credentials"}, status=status.HTTP_400_BAD_REQUEST)
         
 class UserLogoutAPIView(APIView):
+    permission_classes = [IsAuthenticated]
     def post(self, request):
         django_logout(request)
         return Response({"success": True})
+    
+class FriendsListAPIView(APIView):
+    permission_classes = [IsAuthenticated]
+    def get(self,request):
+        friends = request.user.friends.all()
+        data = [
+                {
+                "username": f.username,
+                "profile_image": f.profile_image.url
+                }
+                for f in friends
+                ]
+        return Response(data)

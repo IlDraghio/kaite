@@ -1,3 +1,9 @@
+:root {
+    --base-color: #004466;
+    --secondary-color: #3496c7;
+    --logo-color: #0d1f49;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -14,7 +20,7 @@ header {
     top: 0;
     left: 0;
     width: 100%;
-    background-color: #004466;
+    background-color: var(--base-color);
     color: #fff;
     padding: 1rem;
     z-index: 1000;
@@ -62,7 +68,7 @@ footer {
     bottom: 0;
     left: 0;
     width: 100%;
-    background-color: #004466;
+    background-color: var(--base-color);
     color: #fff;
     text-align: center;
     padding: 1rem;
@@ -82,12 +88,13 @@ main h1 {
     text-align: center;   
     margin-top: 3rem;
     margin-bottom: 0.8rem;
+    color: var(--logo-color)
 }
 
 main h2 {
     text-align: center;   
     margin-bottom: 1.5rem; 
-    color: #3496c7;      
+    color: var(--secondary-color);      
 }
 
 .image-container {
@@ -101,7 +108,7 @@ main h2 {
     top: 17.5%;
     left: 50%; 
     transform: translateX(-50%);
-    background: #004466;
+    background: var(--base-color);
     color: #f7f7f7;
     padding: 1rem 1.5rem;
     border-radius: 8px;
@@ -119,7 +126,7 @@ main h2 {
 #container {
     width: 300px;
     text-align: center;
-    background-color: #f7f7f7;
+    background-color: #ffffff;
     padding: 2rem;
     border-radius: 10px;
 }
@@ -137,7 +144,7 @@ form div {
 form label {
     font-size: 2rem;
     text-align: center;
-    color: #004466;
+    color: var(--base-color);
 }
 
 form input {
@@ -150,8 +157,8 @@ form input {
 form button {
     padding: 0.8rem 2rem;      
     font-size: 2rem;        
-    background-color: #004466; 
-    color:  #f7f7f7;
+    background-color: var(--base-color); 
+    color:  #ffffff;
     border: none;
     border-radius: 8px;
     cursor: pointer;

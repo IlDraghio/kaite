@@ -2,22 +2,39 @@
 {% load static %}
 
 {% block extra_css %}
+<link rel="stylesheet" href="{% static 'user/css/profile.css' %}">
 {% endblock %}
 
 {% block title %}Profile{% endblock %}
 
 {% block page_title %}
-    <h1>Welcome to your profile</h1>
-    <h2>Enjoy friends and statistic!</h2>
 {% endblock %}
 
 {% block content %}
-    <div id="container">
-        
+<div class="two-columns">
+    <div class="first-column">
+        <h1 class="username">{{ request.user.username }}</h1>
+        <img src="{{ user.profile_image.url }}" alt="Profile Picture" class="profile-image">
+        <p class="bio">{{ request.user.bio }}</p>
     </div>
+    <div class="second-column">
+        <h1 class="friends">Friends</h1>
+        <div class="results-container">
+        <ul id="friends-list"></ul>
+        <button id="show-all-friends-btn">Show All</button>
+        <div id="friends-popup" class="popup" style="display:none;">
+        <div class="popup-content">
+        <span id="close-popup" style="cursor:pointer;">&times;</span>
+        <ul id="all-friends-list"></ul>
+    </div>
+</div>
+        </div>
+    </div>
+</div>
     <div id="toast" class="toast"></div>
 {% endblock %}
 
 {% block extra_js%}
 {{ block.super }}
+    <script src="{% static 'user/js/profile.js' %}" defer></script>
 {% endblock %}

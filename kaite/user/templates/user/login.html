@@ -31,9 +31,9 @@
 
 {% block extra_js%}
 {{ block.super }}
-<script>
-    const loginAPIUrl = "{% url 'api-login' %}";
-    const homeUrl = "{% url 'home' %}"; 
-</script>
-<script src="{% static 'user/js/login.js' %}" defer></script>
+    <script>
+        const loginAPIUrl = "{% url 'api-login' %}";
+        const homeUrl = "{% url 'home' %}"; 
+    </script>
+    <script src="{% static 'user/js/login.js' %}" defer></script>
 {% endblock %}
