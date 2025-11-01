@@ -15,10 +15,16 @@
             <a href="{% url 'home' %}" class='left-link'>Home</a>
             {% if user.is_authenticated %}
                 {% csrf_token %}
-                <a href="{% url 'profile' %}" class='profile-link'>
-                <img src="{% static 'images/user-icon.png' %}" alt="Profile" class="profile-icon">
-                </a>
-                <a href="#" id="logout-link" class="right-logout">Logout</a>
+                <div class="nav-right">
+                    <form id="search-form">
+                        <input type="text" id="search-input" placeholder="Search users..." />
+                        <ul id="search-suggestions" class="suggestions"></ul>
+                    </form>
+                    <a href="{% url 'profile' username=request.user.username %}">
+                    <img src="{% static 'images/user-icon.png' %}" alt="Profile" id="profile-icon">
+                    </a>
+                    <a href="#" id="logout-link">Logout</a>
+                </div>
             {% else %}
                 <a href="{% url 'login' %}" class='left-link'>Login</a>
                 <a href="{% url 'registration' %}" class='left-link'>Registration</a>
@@ -39,6 +45,7 @@
         <script>const CSRF_TOKEN = '{{ csrf_token }}';</script>
         <script src="{% static 'js/utils.js' %}" defer></script>
         <script src="{% static 'user/js/logout.js' %}" defer></script>
+        <script src="{% static 'user/js/search.js' %}" defer></script>
     {% endblock %}
 
 </body>

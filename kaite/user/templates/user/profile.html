@@ -13,9 +13,9 @@
 {% block content %}
 <div class="two-columns">
     <div class="first-column">
-        <h1 class="username">{{ request.user.username }}</h1>
+        <h1 class="username">{{ user.username }}</h1>
         <img src="{{ user.profile_image.url }}" alt="Profile Picture" class="profile-image">
-        <p class="bio">{{ request.user.bio }}</p>
+        <p class="bio">{{ user.bio }}</p>
     </div>
     <div class="second-column">
         <h1 class="friends">Friends</h1>

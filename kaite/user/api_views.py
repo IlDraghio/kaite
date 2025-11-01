@@ -50,3 +50,22 @@ class FriendsListAPIView(APIView):
                 for f in friends
                 ]
         return Response(data)
+    
+class UserSearchAPIView(APIView):
+    permission_classes = [IsAuthenticated]
+
+    def get(self, request):
+        query = request.GET.get("q", "")
+        if not query:
+            return Response({"results": []})
+
+        users = User.objects.filter(username__icontains=query)[:5]
+        data = [
+            {
+                "username": u.username,
+                "profile_image": u.profile_image.url if u.profile_image else None,
+                "profile_url": f"/profile/{u.username}/"
+            }
+            for u in users
+        ]
+        return Response({"results": data})
